@@ -49,8 +49,9 @@
 - (void)reloadData {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         self.dataArray = nil;
-        // 调用reload
-        [[ZBCountDownManager manager] reload];
+
+        [[ZBCountDownManager manager] addTimerWithIdentifier:NSStringFromClass(self.class)];
+
         // 刷新
         [self.tableView reloadData];
         // 停止刷新
@@ -83,9 +84,15 @@
             model.ID = [NSString stringWithFormat:@"%zd", i];
             [arrM addObject:model];
         }
+        [[ZBCountDownManager manager] addTimerWithIdentifier:NSStringFromClass(self.class)];
         _dataArray = arrM.copy;
     }
     return _dataArray;
+}
+
+- (void)dealloc{
+    // 移除定时器
+    [[ZBCountDownManager manager] removeTimerWithIdentifier:NSStringFromClass(self.class)];
 }
 
 @end

@@ -28,11 +28,8 @@
     
     self.textLabel.text = model.title;
     NSInteger timeInterval = [ZBCountDownManager manager].timeInterval;
-    [self countDownNotification:timeInterval];
+    [self updateCountDown:timeInterval];
     
-    // 启动倒计时管理
-    [[ZBCountDownManager manager] startTimer];
-
     NSInteger countDown = model.count - timeInterval;
     if (countDown > 0) {
         //添加监听
@@ -45,13 +42,13 @@
         NSInteger timeInterval = [change[NSKeyValueChangeNewKey] integerValue];
         dispatch_async(dispatch_get_main_queue(), ^{
             // 手动刷新数据
-            [self countDownNotification:timeInterval];
+            [self updateCountDown:timeInterval];
         });
     }
 }
 
 #pragma mark - 倒计时通知回调
-- (void)countDownNotification:(NSInteger)timeInterval {
+- (void)updateCountDown:(NSInteger)timeInterval {
     /// 判断是否需要倒计时 -- 可能有的cell不需要倒计时,根据真实需求来进行判断
     if (0) {
         return;
@@ -70,14 +67,6 @@
     }
     /// 重新赋值
     self.detailTextLabel.text = [NSString stringWithFormat:@"%02zd:%02zd:%02zd", countDown/3600, (countDown/60)%60, countDown%60];
-}
-
-- (void)dealloc{
-    // 废除定时器
-    [[ZBCountDownManager manager] invalidate];
-    
-    // 清空时差
-    [[ZBCountDownManager manager] reload];
 }
 
 @end
