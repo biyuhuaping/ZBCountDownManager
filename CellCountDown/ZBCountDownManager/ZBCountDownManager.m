@@ -74,6 +74,7 @@
         [self.timer invalidate];
     }
     self.timer = nil;
+    self.timeInterval = 0;
 }
 
 // 定时器每次加1

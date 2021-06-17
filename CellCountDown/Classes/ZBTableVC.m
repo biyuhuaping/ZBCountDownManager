@@ -24,6 +24,7 @@
     
     self.title = @"列表倒计时";
     [self.view addSubview:self.tableView];
+    [self reloadData];
 }
 
 #pragma mark - UITableViewDelegate
@@ -34,6 +35,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ZBTableViewCell *cell = (ZBTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"ZBTableViewCell"];
     ZBModel *model = self.dataArray[indexPath.row];
+    model.count = indexPath.row *10;
     cell.model = model;
     [cell setCountDownZero:^(ZBModel *timeOutModel){
         if (!timeOutModel.isTimeOut) {
@@ -79,12 +81,11 @@
             // 模拟从服务器取得数据 -- 例如:服务器返回的数据为剩余时间数
             NSInteger count = arc4random_uniform(50); //生成0-100之间的随机正整数
             ZBModel *model = [[ZBModel alloc]init];
-            model.count = count;
+//            model.count = count;
             model.title = [NSString stringWithFormat:@"第%zd条数据", i];
             model.ID = [NSString stringWithFormat:@"%zd", i];
             [arrM addObject:model];
         }
-        [[ZBCountDownManager manager] addTimerWithIdentifier:NSStringFromClass(self.class)];
         _dataArray = arrM.copy;
     }
     return _dataArray;
