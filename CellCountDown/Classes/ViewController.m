@@ -21,8 +21,10 @@
     self.title = @"首页";
 }
 
-- (IBAction)singleTableBtnClick:(id)sender {
-    [self.navigationController pushViewController:[ZBTableVC new] animated:YES];
+- (IBAction)singleTableBtnClick:(UIButton *)sender {
+    ZBTableVC *vc = [[ZBTableVC alloc]init];
+    vc.title = sender.titleLabel.text;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

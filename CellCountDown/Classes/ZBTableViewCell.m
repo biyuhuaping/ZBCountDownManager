@@ -7,7 +7,6 @@
 //
 
 #import "ZBTableViewCell.h"
-#import "ZBModel.h"
 #import "NSObject+SafeObserver.h"
 
 @interface ZBTableViewCell ()

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39150FE826822BA20078845B /* ZBGCDTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 39150FE726822BA20078845B /* ZBGCDTimer.m */; };
+		39150FEB26822E200078845B /* ZBGCDCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39150FEA26822E200078845B /* ZBGCDCell.m */; };
 		39CF5B22266E50B500D5BB52 /* NSObject+SafeObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CF5B20266E50B500D5BB52 /* NSObject+SafeObserver.m */; };
 		6A082DB61FBBEFC20023BF90 /* ZBCountDownManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A082DB51FBBEFC20023BF90 /* ZBCountDownManager.m */; };
 		6A6ECC441F8B4C18006AA322 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2D90001F8B464F0080EAAA /* ViewController.m */; };
@@ -23,6 +25,10 @@
 
 /* Begin PBXFileReference section */
 		08B892AE5C5905A2FAC6CCCE /* Pods-CellCountDown.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CellCountDown.release.xcconfig"; path = "Pods/Target Support Files/Pods-CellCountDown/Pods-CellCountDown.release.xcconfig"; sourceTree = "<group>"; };
+		39150FE626822BA20078845B /* ZBGCDTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBGCDTimer.h; sourceTree = "<group>"; };
+		39150FE726822BA20078845B /* ZBGCDTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZBGCDTimer.m; sourceTree = "<group>"; };
+		39150FE926822E200078845B /* ZBGCDCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZBGCDCell.h; sourceTree = "<group>"; };
+		39150FEA26822E200078845B /* ZBGCDCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZBGCDCell.m; sourceTree = "<group>"; };
 		39CF5B20266E50B500D5BB52 /* NSObject+SafeObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SafeObserver.m"; sourceTree = "<group>"; };
 		39CF5B21266E50B500D5BB52 /* NSObject+SafeObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SafeObserver.h"; sourceTree = "<group>"; };
 		5E56A79A6E1A6C5DD8BB06A2 /* libPods-CellCountDown.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CellCountDown.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +65,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		39BB2B68268315D900C3ADBB /* ZBGCDTimer */ = {
+			isa = PBXGroup;
+			children = (
+				39150FE626822BA20078845B /* ZBGCDTimer.h */,
+				39150FE726822BA20078845B /* ZBGCDTimer.m */,
+			);
+			path = ZBGCDTimer;
+			sourceTree = "<group>";
+		};
 		39CF5B60266F48BC00D5BB52 /* SafeObserver */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +110,8 @@
 				6A2D8FFC1F8B464F0080EAAA /* ZBTableVC.m */,
 				6A2D8FFD1F8B464F0080EAAA /* ZBTableViewCell.h */,
 				6A2D8FFE1F8B464F0080EAAA /* ZBTableViewCell.m */,
+				39150FE926822E200078845B /* ZBGCDCell.h */,
+				39150FEA26822E200078845B /* ZBGCDCell.m */,
 				6A2D8FF51F8B464F0080EAAA /* ZBModel.h */,
 				6A2D8FF61F8B464F0080EAAA /* ZBModel.m */,
 			);
@@ -124,6 +141,7 @@
 			children = (
 				87492F4E1D85A5F90032D7FF /* AppDelegate.h */,
 				87492F4F1D85A5F90032D7FF /* AppDelegate.m */,
+				39BB2B68268315D900C3ADBB /* ZBGCDTimer */,
 				39CF5B60266F48BC00D5BB52 /* SafeObserver */,
 				6A082DB31FBBEFC20023BF90 /* ZBCountDownManager */,
 				6A2D8FF41F8B464F0080EAAA /* Classes */,
@@ -264,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39150FE826822BA20078845B /* ZBGCDTimer.m in Sources */,
 				6A6ECC491F8B4C2B006AA322 /* ZBModel.m in Sources */,
 				6A6ECC481F8B4C28006AA322 /* ZBTableViewCell.m in Sources */,
 				6A6ECC451F8B4C1C006AA322 /* ZBTableVC.m in Sources */,
@@ -271,6 +290,7 @@
 				87492F501D85A5F90032D7FF /* AppDelegate.m in Sources */,
 				87492F4D1D85A5F90032D7FF /* main.m in Sources */,
 				6A082DB61FBBEFC20023BF90 /* ZBCountDownManager.m in Sources */,
+				39150FEB26822E200078845B /* ZBGCDCell.m in Sources */,
 				39CF5B22266E50B500D5BB52 /* NSObject+SafeObserver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,6 +9,7 @@
 #import "ZBTableVC.h"
 #import "ZBModel.h"
 #import "ZBTableViewCell.h"
+#import "ZBGCDCell.h"
 
 @interface ZBTableVC () <UITableViewDataSource, UITableViewDelegate>
 
@@ -22,7 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"列表倒计时";
     [self.view addSubview:self.tableView];
     [self reloadData];
 }
@@ -33,17 +33,31 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ZBTableViewCell *cell = (ZBTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"ZBTableViewCell"];
-    ZBModel *model = self.dataArray[indexPath.row];
-    model.count = indexPath.row *10;
-    cell.model = model;
-    [cell setCountDownZero:^(ZBModel *timeOutModel){
-        if (!timeOutModel.isTimeOut) {
-            NSLog(@"ZBTableVC- %@ -时间到了", timeOutModel.title);
-        }
-        timeOutModel.isTimeOut = YES;
-    }];
-    return cell;
+    if ([self.title isEqualToString:@"KVO倒计时"]) {
+        ZBTableViewCell *cell = (ZBTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"ZBTableViewCell"];
+        ZBModel *model = self.dataArray[indexPath.row];
+        model.count = indexPath.row *10;
+        cell.model = model;
+        [cell setCountDownZero:^(ZBModel *timeOutModel){
+            if (!timeOutModel.isTimeOut) {
+                NSLog(@"ZBTableVC- %@ -时间到了", timeOutModel.title);
+            }
+            timeOutModel.isTimeOut = YES;
+        }];
+        return cell;
+    }else{
+        ZBGCDCell *cell = (ZBGCDCell *)[tableView dequeueReusableCellWithIdentifier:@"ZBGCDCell"];
+        ZBModel *model = self.dataArray[indexPath.row];
+        model.count = indexPath.row *10;
+        cell.model = model;
+        [cell setCountDownZero:^(ZBModel *timeOutModel){
+            if (!timeOutModel.isTimeOut) {
+                NSLog(@"ZBTableVC- %@ -时间到了", timeOutModel.title);
+            }
+            timeOutModel.isTimeOut = YES;
+        }];
+        return cell;
+    }
 }
 
 #pragma mark - 刷新数据
@@ -70,6 +84,7 @@
         _tableView.refreshControl = [[UIRefreshControl alloc] init];
         [_tableView.refreshControl addTarget:self action:@selector(reloadData) forControlEvents:UIControlEventValueChanged];
         [_tableView registerClass:ZBTableViewCell.class forCellReuseIdentifier:@"ZBTableViewCell"];
+        [_tableView registerClass:ZBTableViewCell.class forCellReuseIdentifier:@"ZBGCDCell"];
     }
     return _tableView;
 }

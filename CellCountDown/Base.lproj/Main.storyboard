@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jYn-cr-ucb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jYn-cr-ucb">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,9 +25,20 @@
                                     <constraint firstAttribute="width" constant="200" id="nPf-gd-XQc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="列表倒计时"/>
+                                <state key="normal" title="KVO倒计时"/>
                                 <connections>
                                     <action selector="singleTableBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GQX-29-E45"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOb-Ou-djg">
+                                <rect key="frame" x="87.5" y="144" width="200" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="0rB-ec-BmK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="GCD倒计时"/>
+                                <connections>
+                                    <action selector="singleTableBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QSg-le-dSj"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -35,6 +46,8 @@
                         <constraints>
                             <constraint firstItem="caG-eg-QQJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" id="G5V-Yv-JDm"/>
                             <constraint firstItem="caG-eg-QQJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UxN-KD-dO5"/>
+                            <constraint firstItem="yOb-Ou-djg" firstAttribute="top" secondItem="caG-eg-QQJ" secondAttribute="bottom" constant="50" id="jhz-QG-ITj"/>
+                            <constraint firstItem="yOb-Ou-djg" firstAttribute="centerX" secondItem="caG-eg-QQJ" secondAttribute="centerX" id="qMc-7G-fRw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="k8Z-tk-S8b"/>

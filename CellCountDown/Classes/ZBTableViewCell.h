@@ -4,7 +4,7 @@
 //
 //  Created by herobin on 16/9/11.
 //  Copyright © 2016年 herobin. All rights reserved.
-//
+//  kvo 倒计时
 
 #import <UIKit/UIKit.h>
 #import "ZBModel.h"
